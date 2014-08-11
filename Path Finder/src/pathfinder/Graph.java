@@ -403,19 +403,28 @@ public class Graph  {
 	/**
 	 * Gets a list of GraphEdges from this node. <br>
 	 * Used by graph search classes.
+	 * 
 	 * @param nodeID id of the node where the edges start from
+	 * @return a list of departing edges (the list will be empty if no departing edges)
 	 */
 	public LinkedList<GraphEdge> getEdgeList(int nodeID){
-		return edgeLists.get(nodes.get(nodeID));
+		return getEdgeList(nodes.get(nodeID));
 	}
 
 	/**
 	 * Gets a list of GraphEdges from this node. <br>
 	 * Used by graph search classes.
 	 * @param node the node where the edges start from
+	 * @return a list of departing edges (the list wil be empty if no departing edges)
 	 */
 	public LinkedList<GraphEdge> getEdgeList(GraphNode node){
-		return edgeLists.get(node);
+		LinkedList<GraphEdge> edgeList = null;
+		if(node != null)
+			edgeList = edgeLists.get(node);
+		// Can't find edge list so return empty list
+	    if (edgeList == null)
+	        edgeList = new LinkedList<GraphEdge>();
+	    return edgeList;
 	}
 
 	/**
