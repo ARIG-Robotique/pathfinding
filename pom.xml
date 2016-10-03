@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>org.lagers</groupId>
+	<artifactId>path-finder</artifactId>
+	<version>1.0</version>
+	<packaging>jar</packaging>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>${project.build.sourceEncoding}</project.reporting.outputEncoding>
+
+		<java.version>1.8</java.version>
+
+		<archiva.root.url>http://archiva.picotteland.dtdns.net/repository</archiva.root.url>
+		<archiva.deploy.snapshots>${archiva.root.url}/snapshots</archiva.deploy.snapshots>
+		<archiva.deploy.releases>${archiva.root.url}/internal</archiva.deploy.releases>
+
+	</properties>
+
+	<distributionManagement>
+		<snapshotRepository>
+			<id>archiva-picotteland</id>
+			<name>Picotteland Archiva Snaphots</name>
+			<url>${archiva.deploy.snapshots}</url>
+		</snapshotRepository>
+		<repository>
+			<id>archiva-picotteland</id>
+			<name>Picotteland Archiva Realeses</name>
+			<url>${archiva.deploy.releases}</url>
+		</repository>
+	</distributionManagement>
+
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.5.1</version>
+				<configuration>
+					<encoding>${project.reporting.outputEncoding}</encoding>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>
